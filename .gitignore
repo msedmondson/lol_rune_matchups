@@ -1,0 +1,4 @@
+*.pyc
+*.swp
+paramiko_logs/paramiko.log
+/app/db/*
