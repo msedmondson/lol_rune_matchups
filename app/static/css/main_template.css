@@ -1,0 +1,93 @@
+body,h1,h2,h3,h5,h6 {font-family: "Lato", sans-serif
+}
+.w3-navbar,h1,button {font-family: "Montserrat", sans-serif
+}
+.fa-anchor,.fa-coffee {font-size:200px
+}
+.w3-btn-white{border:none;display:inline-block;outline:0;padding:6px 16px;vertical-align:middle;overflow:hidden;text-decoration:none!important;color:#0000;background-color:#FFF;text-align:center;cursor:pointer;white-space:nowrap
+}
+
+form {
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+div.wrapper {
+	border-style: solid;
+	border-width:2px;
+    position: absolute;
+    margin-right: auto;
+    margin-left: auto;
+    width: 604px;
+    height: 400px;
+    overflow: hidden;
+}
+div.left {
+    background-color: #FFF;
+    width: 300px;
+    height: 100%;
+    position: relative;
+    float:left; /* add this */
+}
+div.right {
+	text-align: center;
+    height: 100%;
+    background-color: #AAA;
+    width: 300px;
+    position: relative;
+    float: right;
+}
+img.avatar {
+    width: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}

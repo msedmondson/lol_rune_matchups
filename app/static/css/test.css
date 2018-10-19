@@ -1,0 +1,45 @@
+#header {
+    background-color: #f06060;
+    padding: 52px 0px;
+}
+#logo {
+    display:inline-block;
+    width: 348px;
+    height: 57px;
+    border:1px dotted black;
+    position:relative;
+}
+#menu {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    display:none;
+}
+#nav {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+#nav.vertical {
+    display: block;
+    padding-left: 20px;
+}
+#nav.vertical li {
+    display: list-item;
+    line-height: 40px;
+}
+#nav li {
+    display:inline-block;
+    padding-right: 40px;
+}
+#nav li:last-child {
+    padding-right: 0;
+}
+@media screen and (max-width: 800px) {
+    #menu {
+        display: inline-block;
+    }
+    #nav {
+        display: none;
+    }
+}

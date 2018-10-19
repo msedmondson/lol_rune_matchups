@@ -1,0 +1,47 @@
+div,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+#tab {
+  width: calc(100%);
+  height: calc(100%);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.ui-tab {
+  list-style: none;
+  text-align: center;
+}
+
+.ui-tab li {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  border-radius: 5px 5px 0 0;
+}
+
+.ui-tab li a {
+  text-decoration: none;
+  display: block;
+  color: #000;
+  padding: 6px 10px 5px;
+}
+
+.ui-tabpanel {
+  border: 1px solid #999;
+  min-height: 200px;
+  padding: 10px;
+}
+
+.active {
+  padding: 10px 10px 5px !important;
+  border-bottom: 1px solid #fff;
+  margin: 0 0 -1px;
+}
