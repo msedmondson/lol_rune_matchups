@@ -6,7 +6,7 @@ Install python3 (Currently being developed on Python 3.6.6): https://www.python.
 
 Make a folder on your computer to store the application, go to that path in your command prompt.
 
-Run `git clone https://github.com/nwsm/march-insanity.git`
+Run `git clone https://github.com/msedmondson/lol_rune_matchups.git`
 
 Install requirements: pip install -r requirements.txt
 
