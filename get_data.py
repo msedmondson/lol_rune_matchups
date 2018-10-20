@@ -37,13 +37,10 @@ initializeDatabase = False
 
 def main(OUTPUT_PATH="./outfile.out"):
     
-    ###                 ###
-    ### Initialize main ###
-    ###                 ###
-    
-    print(apiKey)
-    return
-    
+    ###      ###
+    ### Main ###
+    ###      ###
+
     log('Start Main')
     
     mySummonerId = '92280903'
@@ -51,52 +48,16 @@ def main(OUTPUT_PATH="./outfile.out"):
     if(initializeDatabase):
         initialize_database(mySummonerId)
     
-    # matchId = 2794444102
-    # accountIds = db_get_account_ids_by_matchid(matchId)
-    # for accountId in accountIds.values():
-        # log("accountId")
-        # log(accountId)
-        # summoner = getSummonerByAccountId(accountId)
-        # summonerId = summoner['id']
-        # fill_database(summonerId)
-    summoner = getSummonerByAccountId(213033831)
-    summonerId = summoner['id']
-    fill_database(summonerId)
+    matchId = 2794444102
+    accountIds = db_get_account_ids_by_matchid(matchId)
+    for accountId in accountIds.values():
+        log("accountId")
+        log(accountId)
+        summoner = getSummonerByAccountId(accountId)
+        summonerId = summoner['id']
+        fill_database(summonerId)
     
-    ###           ###
-    ### Main Code ###
-    ###           ###
-    
-
-    
-    
-    # Might need a table of all rune page possibilities
-    
-    # Need table:
-    # Pimary Key: ROWID
-    # championId0
-    # championId1
-    # runePriPath
-    # runePri0
-    # runePri1
-    # runePri2
-    # runePri3
-    # runeSubPath
-    # runeSub0
-    # runeSub1
-    # win
-    # lose
-    # winrate
-      
-    # Table Idea:
-    # A unique runes table is generated from MatchDataPerAccountId
-    # Primary Key: ROWID
-    
-    
-    
-    
-    
-    print('End Main')
+    return # return main
 
 ###           ###
 ### Functions ###

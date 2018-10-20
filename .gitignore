@@ -2,3 +2,5 @@
 *.swp
 paramiko_logs/paramiko.log
 /app/db/*
+dbBackup/*
+api_key.py
