@@ -2,34 +2,10 @@
 
 {% block head %}
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>jQuery UI Autocomplete - Combobox</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
     <!-- CSS -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    
-    <style>
-    .custom-combobox
-    {
-      position: relative;
-      display: inline-block;
-    }
-    .custom-combobox-toggle
-    {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      margin-left: -1px;
-      padding: 0;
-    }
-    .custom-combobox-input
-    {
-      margin: 0;
-      padding: 5px 10px;
-    }
-    </style>
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/style.css"> -->
     
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -39,7 +15,7 @@
     {
         $.widget( "custom.combobox", 
         {
-            _create: function() 
+            _create: function()
             {
                 this.wrapper = $( "<span>" )
                     .addClass( "custom-combobox" )
@@ -208,14 +184,11 @@
     
     <div class = "wrapper">
 
-    <div style="padding:45px; width: 1130px"></div>
     {% if popup %}
         <script>
             window.popup()
         </script>
-    {% endif %}
-    <div style="padding:20px; width: 1130px"></div>
- 
+    {% endif %} 
     
     <!-- Ally Champions -->
     <div class="ui-widget">
@@ -244,13 +217,14 @@
     </div>
     
     <!-- Show Matchup -->
-    <div id="btn_show_matchup">
+    <div id="btn_show_matchup" class="button">
         <input type="submit" value="Show Matchup" class="btn_show_matchup" id="btn_show_matchup">
     </div>
-    <div id="show_matchup"></div>
+    
+    <div id="div_matchup_data" class="matchup_data hidden"></div>
     
     <script type="text/javascript">
-    $( document ).ready(function() 
+    $( document ).ready( function() 
     {
         console.log( "ready!" );
 
@@ -264,9 +238,6 @@
         {
             var allyId = $( "#allyCombobox" ).val();
             var enemyId = $( "#enemyCombobox" ).val();
-            
-            console.log(allyId)
-            console.log(enemyId)
             
             $.ajax(
             {
@@ -282,125 +253,47 @@
                 {
                     console.log("Success");
                     console.log(response);
-
-                    /*
-                     *championId0
-                     *championId1
-                     *runePriPath
-                     *runePri0
-                     *runePri1
-                     *runePri2
-                     *runePri3
-                     *runeSubPath
-                     *runeSub0
-                     *runeSub1
-                     *win
-                     *lose
-                     *winrate
-                    */
                     
-                    
-                    var showMatchupDiv = $("#show_matchup");
-                    showMatchupDiv.empty()
-                    
-                    for ( let data of response )
+                    if( response.length == 0)
                     {
-                        /*
-                        var dataList = $("<ol></ol>").attr(
-                            {
-                                class: "list_matchup_data"
-                            });
-                            
-                        var rowChampionId0 = $("<p></p>").attr(
-                            {
-                                html: "Ally Champion: " + data.championId0
-                            });
-                            
-                        var rowChampionId1 = $("<p></p>").attr(
-                            {
-                                html: "Ememy Champion: " + data.championId1
-                            });
-                            
-                        var rowRunePriPath = $("<p></p>").attr(
-                            {
-                                html: "Rune Primary Path: " + data.runePriPath
-                            });
-                            
-                        var rowRunePri0 = $("<p></p>").attr(
-                            {
-                                html: "Rune Primary 1: " + data.runePri0
-                            });
-                            
-                        var rowRunePri1 = $("<p></p>").attr(
-                            {
-                                html: "Rune Primary 2: " + data.runePri1
-                            });
-                            
-                        var rowRunePri2 = $("<p></p>").attr(
-                            {
-                                html: "Rune Primary 3: " + data.runePri2
-                            });
-                            
-                        var rowRunePri3 = $("<p></p>").attr(
-                            {
-                                html: "Rune Primary 4: " + data.runePri3
-                            });
-                            
-                        var rowRuneSubPath = $("<p></p>").attr(
-                            {
-                                html: "Rune Secondary Path: " + data.runeSubPath
-                            });
-                            
-                        var rowRuneSub0 = $("<p></p>").attr(
-                            {
-                                html: "Rune Secondary 1: " + data.runeSub0
-                            });
-                            
-                        var rowRuneSub1 = $("<p></p>").attr(
-                            {
-                                html: "Rune Secondary 2: " + data.runeSub1
-                            });
-                            
-                        var rowWinrate = $("<p></p>").attr(
-                            {
-                                html: "Winrate: " + "0"
-                            });
-                            
-                        */
-                        
-                        //var dataDiv = $("<div></div>");
+                        var showMatchupDiv = $("#div_matchup_data");
+                        showMatchupDiv.empty()
+                        showMatchupDiv.show()
                         
                         var dataList = $("<ol></ol>").attr(
                             {
                                 class: "list_matchup_data"
                             });
-                            
-                        var rowChampionId0 = $("<p></p>").html("Ally Champion: " + data.championName0);
-                            
-                        var rowChampionId1 = $("<p></p>").html("Ememy Champion: " + data.championName1);
-                            
-                        var rowRunePriPath = $("<p></p>").html("Rune Primary Path: " + data.runePriPathName);
-                            
-                        var rowRunePri0 = $("<p></p>").html("Rune Primary 1: " + data.runePri0Name);
-                            
-                        var rowRunePri1 = $("<p></p>").html("Rune Primary 2: " + data.runePri1Name);
-                            
-                        var rowRunePri2 = $("<p></p>").html("Rune Primary 3: " + data.runePri2Name);
-                            
-                        var rowRunePri3 = $("<p></p>").html("Rune Primary 4: " + data.runePri3Name);
-                            
-                        var rowRuneSubPath = $("<p></p>").html("Rune Secondary Path: " + data.runeSubPathName);
-                            
-                        var rowRuneSub0 = $("<p></p>").html("Rune Secondary 1: " + data.runeSub0Name);
-                            
-                        var rowRuneSub1 = $("<p></p>").html("Rune Secondary 2: " + data.runeSub1Name);
-                            
-                        var rowWinrate = $("<p></p>").html("Winrate: " + data.winrate);
-                        
-                        dataList.append(rowChampionId0, rowChampionId1, rowRunePriPath, rowRunePri0, rowRunePri1, rowRunePri2, rowRunePri3, rowRuneSubPath, rowRuneSub0, rowRuneSub1, rowWinrate);
-                        // dataDiv.append(dataList);
-                        //showMatchupDiv.append(dataDiv);
+                        var rowRunePriPath = $( "<p></p>" ).html( "Sorry, not enough data available" );
+                        dataList.append(rowRunePriPath)
                         showMatchupDiv.append(dataList);
+                    }
+                    else
+                    {
+                        var showMatchupDiv = $("#div_matchup_data");
+                        showMatchupDiv.empty()
+                        showMatchupDiv.show()
+
+                        for( let data of response )
+                        {
+                            var dataList = $("<ol></ol>").attr(
+                                {
+                                    class: "list_matchup_data"
+                                });
+                            
+                            var rowRunePriPath = $( "<p></p>" ).html( "Rune Primary Path: "   + data.runePriPathName );
+                            var rowRunePri0    = $( "<p></p>" ).html( "Rune Primary 1: "      + data.runePri0Name );
+                            var rowRunePri1    = $( "<p></p>" ).html( "Rune Primary 2: "      + data.runePri1Name );
+                            var rowRunePri2    = $( "<p></p>" ).html( "Rune Primary 3: "      + data.runePri2Name );
+                            var rowRunePri3    = $( "<p></p>" ).html( "Rune Primary 4: "      + data.runePri3Name );
+                            var rowRuneSubPath = $( "<p></p>" ).html( "Rune Secondary Path: " + data.runeSubPathName );
+                            var rowRuneSub0    = $( "<p></p>" ).html( "Rune Secondary 1: "    + data.runeSub0Name );
+                            var rowRuneSub1    = $( "<p></p>" ).html( "Rune Secondary 2: "    + data.runeSub1Name );
+                            var rowWinrate     = $( "<p></p>" ).html( "Winrate: "             + data.winrate );
+                            
+                            dataList.append(rowRunePriPath, rowRunePri0, rowRunePri1, rowRunePri2, rowRunePri3, rowRuneSubPath, rowRuneSub0, rowRuneSub1, rowWinrate);
+                            showMatchupDiv.append(dataList);
+                        }
                     }
                     
                 },

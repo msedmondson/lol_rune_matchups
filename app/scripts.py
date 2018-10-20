@@ -11,13 +11,16 @@ def get_matchup_data_by_champion_ids(allyId, enemyId):
     dataDict = {}
     for data in matchupData:
         dataDict = data.__dict__
-        del dataDict['_sa_instance_state']
-        del dataDict['id']
-        winrate = float(float(dataDict['win']) / ( dataDict['win'] + dataDict['lose'] ))
-        dataDict['winrate'] = winrate
-        matchupDataList.append(dataDict)
+        if((dataDict['win'] >= 2) or (dataDict['lose'] >= 2)):
+            del dataDict['_sa_instance_state']
+            del dataDict['id']
+            dataDict['winrate'] = round(dataDict['winrate'], 2)
+            matchupDataList.append(dataDict)
+    if(len(matchupDataList) == 0):
+        newList = []
+    else:
+        newList = sorted(matchupDataList, key=itemgetter('winrate'), reverse=True)
         
-    newList = sorted(matchupDataList, key=itemgetter('winrate'), reverse=True)
     return newList
     
 ### Date Functions ###

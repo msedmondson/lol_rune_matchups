@@ -156,7 +156,7 @@ div.wrapper {
     margin-right: auto 0;
     margin-left: auto 0;
     width: 80vw;
-    height: 80vh;
+    height: 68vh;
     overflow: hidden;
 }
 div.left {
@@ -179,7 +179,7 @@ div.right {
 }
 div.centered {
     border-radius: 25px;
-    background-color: #9ab0d6;
+    background-color: #F1F1F1;
     width: 50vw;
     text-align: center;
     height: 60vh;
@@ -210,13 +210,12 @@ input.inputlist_champions
 div.btn_show_matchup
 {
     width: 300px;
-    margin: 0 auto;
-    padding: 10px;
+    margin: 10px;
     border-radius: 4px;
 }
 
-
-.search_centered {
+.centered
+{
     width: 300px;
     margin: 0;
     text-align: center;
@@ -225,12 +224,15 @@ div.btn_show_matchup
     display: inline;
 }
 
-.search_outer{
+.outer
+{
     width: 400px;
     margin: 0 0 10px 0;
     align-self: middle;
 }
-.search_input{
+
+.input
+{
     margin: auto 0;
     width: 35vw;
     font-size: 15px;
@@ -240,7 +242,9 @@ div.btn_show_matchup
     position: relative;
     float:center;
 }
-.search_submit{
+
+.submit
+{
     margin: 0;
     font-size: 15px;
     padding: 5px;
@@ -250,17 +254,15 @@ div.btn_show_matchup
     border-radius: 4px;
 }
 
-.submit_button{
-    color: white;
-    margin: 0;
-    font-size: 15px;
-    padding: 5px;
-    border: 0px solid #000; 
-    border-radius: 0px;
-    background-color: #4CAF50;
-    margin: 0 auto;
+.button
+{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
 }
-.submit_na{
+
+.na
+{
     color: white;
     margin: 0 auto;
     font-size: 15px;
@@ -270,20 +272,9 @@ div.btn_show_matchup
     background-color: #AAA;
     cursor: not-allowed;
 }
-.bot_result{
-    margin: 0;
-    width: 300px;
-    font-size: 15px;
-    padding: 5px;
-    padding-bottom: 20px;
-    border: 1px solid #EEEEEE;
-    border-radius: 8px;
-    position: relative;
-    right:-20%;
-    float:left;
-}
 
-button.submit_filter{
+button.filter
+{
     border: none;
     background-color:#f9f9f9;
     color: black;
@@ -296,11 +287,15 @@ button.submit_filter{
     margin: 4px 2px;
     cursor: pointer;
 }
-button.submit_filter:hover {
+
+button.filter:hover
+{
     background-color: #4CAF50;
     color: white;
 }
-button.dropbtn {
+
+button.dropbtn
+{
     background-color: #4caf50;
     color: white;
     padding: 8px;
@@ -315,7 +310,8 @@ div.dropdown {
     display: inline-block;
 }
 
-div.dropdown-content {
+div.dropdown-content
+{
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -323,7 +319,9 @@ div.dropdown-content {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-div.dropdown-content a {
+
+div.dropdown-content a
+{
     text-align: center;
     color: black;
     padding: 12px 16px;
@@ -331,37 +329,72 @@ div.dropdown-content a {
     display: block;
 }
 
-div.dropdown-content a:hover {background-color: #BBB}
+div.dropdown-content a:hover
+{
+    background-color: #BBB
+}
 
-div.dropdown:hover .dropdown-content {
+div.dropdown:hover .dropdown-content
+{
     display: block;
 }
 
-div.dropdown:hover .dropbtn {
+div.dropdown:hover .dropbtn
+{
     background-color: #3e8e41;
 }
 
-div.centeredH{
+div.centeredH
+{
   text-align: center;
 }
 
-input.break {
+input.break
+{
     word-wrap: break-word;
     word-break: break-all;
     height: 80px;
 }
 
-textarea{
+textarea
+{
     width: 400px;
     height: 200px;
 }
 
+div.matchup_data
+{
+    border-radius: 15px;
+    background-color: #F1F1F1;
+    width: 66vw;
+    text-align: left;
+    height: 43vh;
+    padding: 10px;
+    position: relative;
+}
 
 ol.list_matchup_data
 {
     list-style-type: none;
-    
     display: inline-block;
-    *display: inline;
-    zoom: 1
+    zoom: 1;
+}
+
+.custom-combobox
+{
+  position: relative;
+  display: inline-block;
+}
+.custom-combobox-toggle
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-left: -1px;
+  padding: 0;
+}
+.custom-combobox-input
+{
+  margin: 0;
+  padding: 5px 10px;
 }

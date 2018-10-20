@@ -1,7 +1,6 @@
 from flask import   render_template, Blueprint, render_template,\
                     jsonify, request, redirect, session
 import os
-from app.input_validation import validate_search_request
 from app import app
 from app.scripts import dropUnicode, get_matchup_data_by_champion_ids
 from app.db_queries import db_get_all_champions
@@ -22,9 +21,15 @@ def rune_page_matchups():
     champion_list = args['champion_list'],
     popup = args['popup'])
 
+# Tis just a test page
 @app.route('/test_page', methods=['GET', 'POST'])
 def test_page():
-    return render_template("test_page.html")
+    args = {"champion_list": "", "popup": False}
+    args['champion_list'] = db_get_all_champions()
+    
+    return render_template("test_page.html",
+    champion_list = args['champion_list'],
+    popup = args['popup'])
     
 @app.route('/todo/api/v1.0/matchup_data', methods=['GET'])
 def get_matchup_data():

@@ -26,6 +26,11 @@ div.wrapper {
     overflow: hidden; /* add this to contain floated children */
 }
 
+.hidden
+{
+    display: none;
+}
+
 div.div1 {
     float:left; /* add this */
     height: 315px;
@@ -51,7 +56,7 @@ div.topnav {
 div.topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #816427;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;

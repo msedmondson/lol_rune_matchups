@@ -9,7 +9,6 @@ import sys
 import requests
 import re
 import xlrd
-import re
 import os
 import datetime
 import csv
@@ -22,11 +21,13 @@ from app import scripts
 from app.logger import log
 from app.db_queries import db_merge_matchIds, db_merge_matchData, db_add_champions, db_add_runes, db_get_match_data_not_calculated, db_get_match_data, db_add_matchup_data, db_add_match_data_calculated, db_update_matchup_winrates, db_get_account_ids_by_matchid
 
+# Import API Key from another file
+from api_key import apiKey
+
 ###                  ###
 ### Global Variables ###
 ###                  ###
 
-apiKey = 'RGAPI-3c4e241c-f68c-4b2e-bbe6-02e90e0e4219'
 sleepDelayShort = 1.22  # Ideally, this is 1.2, but put extra 0.01 for safety
 sleepDelayLong = 24.1  # Ideally, this is 1.2, but put extra 0.01 for safety
 apiCount = 0
@@ -40,6 +41,9 @@ def main(OUTPUT_PATH="./outfile.out"):
     ### Initialize main ###
     ###                 ###
     
+    print(apiKey)
+    return
+    
     log('Start Main')
     
     mySummonerId = '92280903'
@@ -47,14 +51,17 @@ def main(OUTPUT_PATH="./outfile.out"):
     if(initializeDatabase):
         initialize_database(mySummonerId)
     
-    matchId = 2794444102
-    accountIds = db_get_account_ids_by_matchid(matchId)
-    for accountId in accountIds.values():
-        log("accountId")
-        log(accountId)
-        summoner = getSummonerByAccountId(accountId)
-        summonerId = summoner['id']
-        fill_database(summonerId)
+    # matchId = 2794444102
+    # accountIds = db_get_account_ids_by_matchid(matchId)
+    # for accountId in accountIds.values():
+        # log("accountId")
+        # log(accountId)
+        # summoner = getSummonerByAccountId(accountId)
+        # summonerId = summoner['id']
+        # fill_database(summonerId)
+    summoner = getSummonerByAccountId(213033831)
+    summonerId = summoner['id']
+    fill_database(summonerId)
     
     ###           ###
     ### Main Code ###
@@ -328,6 +335,9 @@ def fill_database(summonerIdSeed):
             perkPrimaryStyle = {}
             perkSubStyle = {}
             
+            # Sometimes, participants in matches don't have any perk data. Not sure why. Riot please fix.
+            if('perkPrimaryStyle' not in stats):
+                break
             perkPrimaryStyleId = stats['perkPrimaryStyle']
             perkSubStyleId = stats['perkSubStyle']
             
