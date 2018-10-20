@@ -31,7 +31,7 @@ from api_key import apiKey
 sleepDelayShort = 1.22  # Ideally, this is 1.2, but put extra 0.01 for safety
 sleepDelayLong = 24.1  # Ideally, this is 1.2, but put extra 0.01 for safety
 apiCount = 0
-initializeDatabase = False
+initializeDatabase = True
 
 # curl --request GET 'https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/RiotSchmick?api_key=<key>' --include
 
