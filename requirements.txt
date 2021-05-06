@@ -7,7 +7,7 @@ cycler==0.10.0
 DateTime==4.3
 decorator==4.3.0
 Flask==1.0.2
-Flask-Cors==3.0.6
+Flask-Cors==3.0.9
 Flask-Login==0.4.1
 Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
